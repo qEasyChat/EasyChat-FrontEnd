@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyChat_FrontEnd"
         mc:Ignorable="d"
-        Title="EasyChat" Height="600" Width="400" Icon="logo.png" ResizeMode="NoResize" Background="#FF00226C">
+        Title="EasyChat" Height="600" Width="400" Icon="logo.png" ResizeMode="NoResize" Background="#FF00226C" FontFamily="Calibri" WindowStyle="ThreeDBorderWindow">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="332*"/>
@@ -18,9 +18,11 @@
             </Grid.RowDefinitions>
             <Image Height="64" Margin="156,10,156,0" VerticalAlignment="Top" Source="logo.png"/>
             <Label Content="EasyChat" Margin="68,52,68,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Calibri" FontSize="64" Height="88"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,87,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Welcome to EasyChat!" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Calibri" Height="29" Width="226"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,132,-6,0" Grid.Row="1" TextWrapping="Wrap" Text="Do you wish to start a local server or connect, as a user, to a remote server?" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Calibri" Height="49" Width="370"/>
-            <Button x:Name="runServerButton" Content="Run Server" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Calibri"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Welcome to EasyChat!" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Calibri" Height="29" Width="226"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,100,-6,0" Grid.Row="1" TextWrapping="Wrap" Text="Do you wish to start a local server or connect, as a user, to a remote server?" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Calibri" Height="49" Width="370"/>
+            <Button x:Name="runServerButton" Content="Start local server" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="172" FontSize="16" FontFamily="Calibri" Background="#FFB6F5F2"/>
+            <Button x:Name="connectRemoteServerButton" Content="Connect to remote server" HorizontalAlignment="Left" Height="50" Margin="192,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="172" FontSize="16" FontFamily="Calibri" Background="#FFB6F5F2"/>
+            <Image HorizontalAlignment="Left" Height="50" Margin="156,142,0,0" Grid.Row="2" VerticalAlignment="Top" Width="50" Source="github-logo.png"/>
         </Grid>
 
     </Grid>
