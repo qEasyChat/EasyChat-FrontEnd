@@ -27,7 +27,8 @@ namespace EasyChat_FrontEnd
 
         private void runServerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            welcomeGrid.Visibility = Visibility.Hidden;
+            startServerGrid.Visibility = Visibility.Visible;
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
