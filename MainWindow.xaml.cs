@@ -24,5 +24,15 @@ namespace EasyChat_FrontEnd
         {
             InitializeComponent();
         }
+
+        private void runServerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/qEasyChat");
+        }
     }
 }
