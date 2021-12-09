@@ -19,17 +19,23 @@
             <Image Height="64" Margin="156,10,156,0" VerticalAlignment="Top" Source="logo.png"/>
             <Label Content="EasyChat" Margin="68,52,68,0" VerticalAlignment="Top" Background="#00000000" Foreground="White" FontFamily="Calibri" FontSize="64" Height="88"/>
             <Image HorizontalAlignment="Left" Height="50" Margin="156,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="50" Source="github-logo.png" MouseDown="Image_MouseDown"/>
-            <Grid x:Name="welcomeGrid" HorizontalAlignment="Left" Height="269" Grid.Row="1" VerticalAlignment="Top" Width="394" Margin="10,0,0,0">
+            <Grid x:Name="welcomeGrid" HorizontalAlignment="Left" Height="269" Grid.Row="1" VerticalAlignment="Top" Width="394" Margin="10,0,0,0" Visibility="Hidden">
                 <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Welcome to EasyChat!" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Calibri" Height="29" Width="226"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,55,0,0" TextWrapping="Wrap" Text="Do you wish to start a local server or connect, as a user, to a remote server?" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Calibri" Height="49" Width="370"/>
                 <Button x:Name="runServerButton" Content="Start local server" Height="50" Margin="0,122,214,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri" Background="#FFB6F5F2" Width="180" Click="runServerButton_Click"/>
                 <Button x:Name="connectRemoteServerButton" Content="Connect to remote server" Margin="200,122,14,97" FontSize="16" FontFamily="Calibri" Background="#FFB6F5F2" Width="180"/>
                 <Grid HorizontalAlignment="Left" Height="16" Margin="10,39,0,0" VerticalAlignment="Top" Width="53"/>
             </Grid>
-            <Grid x:Name="startServerGrid" HorizontalAlignment="Left" Height="269" Margin="5,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="399" Visibility="Hidden">
-                <Button x:Name="startServerButton" Content="Button" HorizontalAlignment="Left" Height="58" Margin="129,211,0,0" VerticalAlignment="Top" Width="173"/>
+            <Grid x:Name="startServerGrid" HorizontalAlignment="Left" Height="269" Margin="5,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="399">
+                <Button x:Name="startServerButton" Content="Start server" HorizontalAlignment="Left" Height="58" Margin="129,211,0,0" VerticalAlignment="Top" Width="173" Foreground="Black" Background="#FFB7FF72" Click="startServerButton_Click"/>
                 <TextBox x:Name="portNumberTextBox" HorizontalAlignment="Left" Height="28" Margin="5,58,0,0" TextWrapping="Wrap" Text="Port number" VerticalAlignment="Top" Width="394" FontSize="20"/>
                 <TextBox x:Name="serverNameTextBox" HorizontalAlignment="Left" Height="28" Margin="5,25,0,0" TextWrapping="Wrap" Text="Server name" VerticalAlignment="Top" Width="394" FontSize="20"/>
+                <ComboBox HorizontalAlignment="Left" Height="37" Margin="10,114,0,0" VerticalAlignment="Top" Width="239" FontSize="20">
+                    <ComboBoxItem Content="INI"/>
+                    <ComboBoxItem Content="SQLite" FontSize="14"/>
+                    <Button Content="Button" Width="75"/>
+                </ComboBox>
+                <Button x:Name="selectDBFileButton" Content="Select db file" HorizontalAlignment="Left" Height="37" Margin="264,114,0,0" VerticalAlignment="Top" Width="135" FontSize="20" Click="selectDBFileButton_Click"/>
             </Grid>
         </Grid>
 
