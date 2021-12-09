@@ -27,13 +27,12 @@
                 <Grid HorizontalAlignment="Left" Height="16" Margin="10,39,0,0" VerticalAlignment="Top" Width="53"/>
             </Grid>
             <Grid x:Name="startServerGrid" HorizontalAlignment="Left" Height="269" Margin="5,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="399">
-                <Button x:Name="startServerButton" Content="Start server" HorizontalAlignment="Left" Height="58" Margin="129,211,0,0" VerticalAlignment="Top" Width="173" Foreground="Black" Background="#FFB7FF72" Click="startServerButton_Click"/>
-                <TextBox x:Name="portNumberTextBox" HorizontalAlignment="Left" Height="28" Margin="5,58,0,0" TextWrapping="Wrap" Text="Port number" VerticalAlignment="Top" Width="394" FontSize="20"/>
-                <TextBox x:Name="serverNameTextBox" HorizontalAlignment="Left" Height="28" Margin="5,25,0,0" TextWrapping="Wrap" Text="Server name" VerticalAlignment="Top" Width="394" FontSize="20"/>
-                <ComboBox HorizontalAlignment="Left" Height="37" Margin="10,114,0,0" VerticalAlignment="Top" Width="239" FontSize="20">
+                <Button x:Name="startServerButton" Content="Start server" HorizontalAlignment="Left" Margin="129,211,0,0" Width="173" Foreground="Black" Background="#FFB7FF72" Click="startServerButton_Click"/>
+                <TextBox x:Name="portNumberTextBox" HorizontalAlignment="Left" Height="28" Margin="5,58,0,0" TextWrapping="Wrap" Text="Port number" VerticalAlignment="Top" Width="394" FontSize="20" GotFocus="portNumberTextBox_GotFocus"/>
+                <TextBox x:Name="serverNameTextBox" HorizontalAlignment="Left" Height="28" Margin="5,25,0,0" TextWrapping="Wrap" Text="Server name" VerticalAlignment="Top" Width="394" FontSize="20" GotFocus="serverNameTextBox_GotFocus"/>
+                <ComboBox x:Name="databaseTypeComboBox" HorizontalAlignment="Left" Height="37" Margin="10,114,0,0" VerticalAlignment="Top" Width="239" FontSize="20">
                     <ComboBoxItem Content="INI"/>
                     <ComboBoxItem Content="SQLite" FontSize="14"/>
-                    <Button Content="Button" Width="75"/>
                 </ComboBox>
                 <Button x:Name="selectDBFileButton" Content="Select db file" HorizontalAlignment="Left" Height="37" Margin="264,114,0,0" VerticalAlignment="Top" Width="135" FontSize="20" Click="selectDBFileButton_Click"/>
             </Grid>
