@@ -27,17 +27,21 @@ namespace EasyChat_FrontEnd
     public partial class MainWindow : Window
     {
         [DllImport("EasyChat-DLLs.dll", CallingConvention = CallingConvention.Cdecl)]
-        extern static int new_server(int x);
+        extern static IntPtr new_server(string server_name, int port);
         [DllImport("EasyChat-DLLs.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static int get_driver_type(string db_type);
-        [DllImport("EasyChat-DLLs.dll", CallingConvention = CallingConvention.Cdecl)]
-        extern static int connect_to_database(IntPtr server,int driver_type, string file_path);
+        [DllImport("EasyChat-DLLs.dll",
+            EntryPoint = "?connect_to_database@Server@@QEAAXW4Database_Driver_Type@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z",
+            CallingConvention = CallingConvention.ThisCall)]
+        extern static void connect_to_database(IntPtr server, int db_type, string file_path);
 
-        [DllImport("EasyChat-DLLs.dll", CallingConvention = CallingConvention.Cdecl)]
-        extern static int start(IntPtr server);
+        [DllImport("EasyChat-DLLs.dll",
+            EntryPoint = "?start@Server@@QEAAXXZ",
+            CallingConvention = CallingConvention.ThisCall)]
+        extern static void start(IntPtr server);
 
         private OpenFileDialog openFileDialog;
-
+        private string db_file_path;
         public MainWindow()
         {
             InitializeComponent();
@@ -59,8 +63,19 @@ namespace EasyChat_FrontEnd
         {
             string serverName = serverNameTextBox.Text;
             string portString = portNumberTextBox.Text;
-            int port = Int32.Parse(portString)
-            IntPtr server = new_server();
+            int port = Int32.Parse(portString);
+            try
+            {
+                IntPtr server = new_server(serverName, port);
+                string database_type = databaseTypeComboBox.Text;
+                connect_to_database(server, 1, db_file_path);
+                start(server);
+                MessageBox.Show("Server started successfully.");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void selectDBFileButton_Click(object sender, RoutedEventArgs e)
@@ -69,8 +84,7 @@ namespace EasyChat_FrontEnd
             {
                 try
                 {
-                    string filepath = openFileDialog.FileName;
-                    MessageBox.Show(filepath);
+                    db_file_path = openFileDialog.FileName;
                 }
                 catch (SecurityException ex)
                 {
@@ -79,6 +93,16 @@ namespace EasyChat_FrontEnd
                 }
             }
 
+        }
+
+        private void serverNameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            serverNameTextBox.Text = "";
+        }
+
+        private void portNumberTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            portNumberTextBox.Text = "";
         }
     }
 }
